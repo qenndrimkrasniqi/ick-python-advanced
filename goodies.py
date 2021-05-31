@@ -49,9 +49,16 @@ def only_upper(my_list):
     return [i for i in my_list if i.isupper()]
 
 
-my_list = ['Ani', 'PO', 'jo', 'PSE']
-result = only_upper(my_list)
-print(result)
+def avoids(word, forbidden):
+    for i in forbidden:
+        if i in word:
+            return False
+    return True
 
+
+def avoids(word, forbidden):
+    return not any([i in word for i in forbidden ])
+
+print(avoids('anifdfdf', 'bc'))
 
 

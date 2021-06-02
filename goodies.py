@@ -59,6 +59,45 @@ def avoids(word, forbidden):
 def avoids(word, forbidden):
     return not any([i in word for i in forbidden ])
 
-print(avoids('anifdfdf', 'bc'))
 
+def uses_all(word, required):
+    for i in required:
+        if i not in word:
+            return False
+    return True
+
+def uses_all(word, required):
+    return all([i in word for i in required])
+
+
+def subtract(list1, list2):
+    list_s = []
+    for i in list1:
+        if i not in list2:
+            list_s.append(i)
+    return list_s
+
+def subtract(list1, list2):
+    return set(list1) - set(list2)
+
+
+def has_duplicates(l1):
+    l2 = []
+    for i in l1:
+        if i not in l2:
+            l2.append(i)
+    l2.sort()
+    l1.sort()
+    return l1 != l2
+
+
+def has_duplicates(l1):
+    return len(set(l1)) != len(l1)
+
+
+list1 = ['ani', 'pse', 'pse']
+list2 = ['po', 'jo', 'ani']
+
+print(has_duplicates(list1))
+print(has_duplicates(list2))
 

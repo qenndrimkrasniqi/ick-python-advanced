@@ -98,6 +98,20 @@ def has_duplicates(l1):
 list1 = ['ani', 'pse', 'pse']
 list2 = ['po', 'jo', 'ani']
 
-print(has_duplicates(list1))
-print(has_duplicates(list2))
 
+def uses_only(word, available):
+    for i in word:
+        if i not in available:
+            return False
+    return True
+
+def uses_only(word, available):
+    return uses_all(available, word)
+
+
+def avoids(word, forbidden):
+    return set(word).isdisjoint(set(forbidden))
+
+
+print(avoids('ani', 'be')) # True
+print(avoids('po mre', ' m')) # False

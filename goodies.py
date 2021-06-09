@@ -1,3 +1,6 @@
+from collections import Counter
+
+
 def is_positive(n):
     return n > 0
 
@@ -113,5 +116,21 @@ def avoids(word, forbidden):
     return set(word).isdisjoint(set(forbidden))
 
 
-print(avoids('ani', 'be')) # True
-print(avoids('po mre', ' m')) # False
+def is_anagram(str1, str2):
+    my_str1 = list(str1)
+    my_str2 = list(str2)
+    my_str1.sort()
+    my_str2.sort()
+    return my_str1 == my_str2
+
+
+def is_anagram(str1, str2):
+    return sorted(str1) == sorted(str2)
+
+
+def is_anagram(str1, str2):
+    return Counter(str1) == Counter(str2)
+
+
+print(is_anagram('ani', 'ina'))  # True
+print(is_anagram('ani', 'pse'))  # False

@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, defaultdict, namedtuple
 
 
 def is_positive(n):
@@ -132,5 +132,35 @@ def is_anagram(str1, str2):
     return Counter(str1) == Counter(str2)
 
 
-print(is_anagram('ani', 'ina'))  # True
-print(is_anagram('ani', 'pse'))  # False
+def histogram(path):
+    d = defaultdict(list)
+    file = open(path)
+    content = file.read()
+    words = content.split()
+    for word in words:
+        first_letter = word[0]
+        if word not in d[first_letter]:
+            d[first_letter].append(word)
+        # if first_letter not in d:
+        #     d[first_letter] = [word]
+        # elif word not in d[first_letter]:
+        #     d[first_letter].append(word)
+    return d
+
+d = histogram('./words.txt')
+
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+point = Point(x=1, y=2)
+
+Person = namedtuple('Person', ['name', 'surname'])
+
+person = Person(name='Hamdi', surname='Gashi')
+print(person)
